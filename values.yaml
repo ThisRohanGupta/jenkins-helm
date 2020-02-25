@@ -44,7 +44,7 @@ jenkinsUser: user
 ## Defaults to a random 10-character alphanumeric string if not set
 ## ref: https://github.com/bitnami/bitnami-docker-jenkins#configuration
 ##
-# jenkinsPassword:
+jenkinsPassword: password
 
 ## Jenkins home directory
 ##
@@ -84,9 +84,9 @@ resources:
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits: {}
-  #   cpu: 500m
-  #   memory: 1Gi
+  limits: 
+    cpu: 500m
+    memory: 1Gi
   requests:
     cpu: 300m
     memory: 512Mi
@@ -117,7 +117,7 @@ tolerations: {}
 persistence:
   ## If true, use a Persistent Volume Claim, If false, use emptyDir
   ##
-  enabled: true
+  enabled: false
   ## Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
